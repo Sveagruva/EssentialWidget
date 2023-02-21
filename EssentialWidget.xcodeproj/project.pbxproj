@@ -46,7 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4319BF7828D0FBF60060CA4D /* EssentialWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4319BF7828D0FBF60060CA4D /* EssentialWidgetIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialWidgetIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4319BF7B28D0FBF60060CA4D /* EssentialWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialWidgetApp.swift; sourceTree = "<group>"; };
 		4319BF7D28D0FBF60060CA4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4319BF7F28D0FBF80060CA4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		4319BF7928D0FBF60060CA4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4319BF7828D0FBF60060CA4D /* EssentialWidget.app */,
+				4319BF7828D0FBF60060CA4D /* EssentialWidgetIOS.app */,
 				4319BF8D28D0FC340060CA4D /* CalendarExtension.appex */,
 			);
 			name = Products;
@@ -143,9 +143,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4319BF7728D0FBF60060CA4D /* EssentialWidget */ = {
+		4319BF7728D0FBF60060CA4D /* EssentialWidgetIOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4319BF8628D0FBF80060CA4D /* Build configuration list for PBXNativeTarget "EssentialWidget" */;
+			buildConfigurationList = 4319BF8628D0FBF80060CA4D /* Build configuration list for PBXNativeTarget "EssentialWidgetIOS" */;
 			buildPhases = (
 				4319BF7428D0FBF60060CA4D /* Sources */,
 				4319BF7528D0FBF60060CA4D /* Frameworks */,
@@ -157,9 +157,9 @@
 			dependencies = (
 				4319BF9D28D0FC400060CA4D /* PBXTargetDependency */,
 			);
-			name = EssentialWidget;
+			name = EssentialWidgetIOS;
 			productName = EssentialWidget;
-			productReference = 4319BF7828D0FBF60060CA4D /* EssentialWidget.app */;
+			productReference = 4319BF7828D0FBF60060CA4D /* EssentialWidgetIOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4319BF8C28D0FC340060CA4D /* CalendarExtension */ = {
@@ -210,7 +210,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4319BF7728D0FBF60060CA4D /* EssentialWidget */,
+				4319BF7728D0FBF60060CA4D /* EssentialWidgetIOS */,
 				4319BF8C28D0FC340060CA4D /* CalendarExtension */,
 			);
 		};
@@ -406,6 +406,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Sveagruva.EssentialWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -436,6 +439,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Sveagruva.EssentialWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,7 +514,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4319BF8628D0FBF80060CA4D /* Build configuration list for PBXNativeTarget "EssentialWidget" */ = {
+		4319BF8628D0FBF80060CA4D /* Build configuration list for PBXNativeTarget "EssentialWidgetIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4319BF8728D0FBF80060CA4D /* Debug */,
