@@ -132,15 +132,3 @@ struct MonthTile: View {
         .font(.system(size: 16))
     }
 }
-
-struct MonthTile_Previews: PreviewProvider {
-    static var previews: some View {
-        MonthTile(
-            entry: CalendarEntry(date: Date(), configuration: ConfigurationIntent()),
-            Month: 1,
-            Year: 2022
-        )
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-
-    }
-}

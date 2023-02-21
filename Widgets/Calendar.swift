@@ -1,13 +1,14 @@
 //
-//  Calendar.swift
-//  Calendar
+//  CalendarWidget.swift
+//  CalendarExtension
 //
-//  Created by Sveagruva on 13.09.2022.
+//  Created by Sveagruva on 2/21/23.
 //
 
 import WidgetKit
 import SwiftUI
 import Intents
+
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> CalendarEntry {
@@ -19,7 +20,7 @@ struct Provider: IntentTimelineProvider {
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<CalendarEntry>) -> ()) {
         var entries: [CalendarEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
@@ -44,11 +45,6 @@ struct CalendarEntryView : View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var fam
 
-    let familyToLayoutSize: [WidgetFamily: Int] = [
-        .systemMedium: 2,
-        .systemLarge: 4,
-        .systemExtraLarge: 8,
-    ]
 
     var body: some View {
         let parts = Calendar.current.dateComponents([.month, .year], from: entry.date)
@@ -56,6 +52,17 @@ struct CalendarEntryView : View {
         var year: Int = parts.year!
 
         var views: [MonthTile] = []
+        
+        var familyToLayoutSize: [WidgetFamily: Int] = [
+            .systemMedium: 2,
+            .systemLarge: 4,
+        ]
+        
+#if os(iOS)
+        let _ = familyToLayoutSize[WidgetFamily.systemExtraLarge] = 8
+#endif
+
+        
         let layout: Int = familyToLayoutSize[fam]!
         let _ = (0..<layout).forEach { i in
             views.append(MonthTile(entry: entry, Month: month, Year: year))
@@ -66,6 +73,8 @@ struct CalendarEntryView : View {
             }
         }
 
+
+        
         switch fam {
         case .systemMedium:
             VStack {
@@ -130,34 +139,5 @@ struct CalendarEntryView : View {
         default:
             views[0]
         }
-    }
-}
-
-@main
-struct CalendarWidget: Widget {
-    let kind: String = "Calendar"
-
-    var body: some WidgetConfiguration {
-        IntentConfiguration(
-            kind: kind,
-            intent: ConfigurationIntent.self,
-            provider: Provider()
-        ) { entry in
-            CalendarEntryView(entry: entry)
-        }
-        .configurationDisplayName("Calendar")
-        .description("Calendar widget")
-        .supportedFamilies([.systemMedium, .systemLarge, .systemExtraLarge])
-    }
-}
-
-struct Calendar_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarEntryView(entry: CalendarEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-        CalendarEntryView(entry: CalendarEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemLarge))
-        CalendarEntryView(entry: CalendarEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
     }
 }
